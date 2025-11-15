@@ -18,14 +18,13 @@ Snowy owls
 
 ## Repository Directory
 
-### [Capture_Method_Assessment.R](./Capture_Method_Assessment.R): Code to analyze capture method use, including summarizing and visualizing results.
-* [Capture_Method_Assessment.R](./Capture_Method_Assessment/Capture_Method_Assessment.R) - Code to analyze capture method use, including summarizing and visualizing results.
+### [Capture_Method_Assessment.R](./Capture_Method_Assessment.R): Code to analyze use of snowy owl capture methods, including summarizing and visualizing results.
 
-### [Data_Prep](./Data_Prep): Contains code for preparing WCAA snowy owl data for analyses.
-* [Data_Prep.R](./Data_Prep/Data_Prep.R) - Code to wrangle, merge, and prepare WCAA data for all analyses.
+### [Data_Prep.R](./Data_Prep.R): Code to wrangle, merge, and prepare WCAA snowy owl data for analyses.
 
-### [Temporal_Analyses](./Temporal_Analyses): Contains code for analyzing and visulizing results associated with temporal data.
-* [Time_of_Day.R](./Temporal_Analyses/Time_of_Day.R) - Code to process, analyze, and visualize time-of-day results (activity and captures).
+### [Time_of_Day.R](./Time_of_Day.R): Code to process, analyze, and visualize time-of-day results, including snowy owl activity and capture.
+
+### [Time_of_Year.R](./Time_of_Year.R): Code to assign snowy owl migration periods and create plots and summary tables.
 
 ## Supplemental Information
 * 
