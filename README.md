@@ -19,7 +19,7 @@ Snowy owls
 ## Repository Directory
 
 ### [Capture_Method_Assessment](./Capture_Method_Assessment): Contains code for evaluating use of different snowy owl capture methods.
-* [Capture_Methods.R](./Capture_Method_Assessment/Capture_Methods.R) - Code to analyze capture method use, including summarizing and visualizing results.
+* [Capture_Method_Assessment.R](./Capture_Method_Assessment/Capture_Method_Assessment.R) - Code to analyze capture method use, including summarizing and visualizing results.
 
 ### [Data_Prep](./Data_Prep): Contains code for preparing WCAA snowy owl data for analyses.
 * [Data_Prep.R](./Data_Prep/Data_Prep.R) - Code to wrangle, merge, and prepare WCAA data for all analyses.
