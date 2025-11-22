@@ -22,7 +22,7 @@ Snowy owls
 
 ### [Data_Prep.R](./Data_Prep.R): Code to wrangle, merge, and prepare WCAA snowy owl data for analyses.
 
-### [Time_of_Day.R](./Time_of_Day.R): Code to process, analyze, and visualize time-of-day results, including snowy owl activity and capture.
+### [Time_of_Day.R](./Time_of_Day.R): Code to process, analyze, and visualize time-of-day results, including snowy owl observations and capture.
 
 ### [Time_of_Year.R](./Time_of_Year.R): Code to assign snowy owl migration periods and create plots and summary tables.
 
