@@ -26,5 +26,7 @@ Snowy owls
 
 ### [Time_of_Year.R](./Time_of_Year.R): Code to assign snowy owl migration periods, evaluate seasonal activity patterns, and produce plots and summary table.
 
+### [Migration_Timing.R](./Migration_Timing.R): Code to visualize migration timing by migration period; and estimate overall average migration start and end dates.
+
 ## Supplemental Information
 * 
