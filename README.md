@@ -28,5 +28,7 @@ Snowy owls
 
 ### [Migration_Timing.R](./Migration_Timing.R): Code to visualize migration timing by migration period; and estimate overall average migration start and end dates.
 
+### [Aircraft_Interactions.R](./Aircraft_Interactions.R): Code to summarize strike counts and damage by airport and migration period.
+
 ## Supplemental Information
 * 
