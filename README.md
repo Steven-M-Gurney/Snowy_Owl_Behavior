@@ -24,7 +24,7 @@ Snowy owls
 
 ### [Time_of_Day.R](./Time_of_Day.R): Code to process, analyze, and visualize time-of-day results, including snowy owl observations and capture.
 
-### [Time_of_Year.R](./Time_of_Year.R): Code to assign snowy owl migration periods and create plots and summary tables.
+### [Time_of_Year.R](./Time_of_Year.R): Code to assign snowy owl migration periods, evaluate seasonal activity patterns, and produce plots and summary table.
 
 ## Supplemental Information
 * 
