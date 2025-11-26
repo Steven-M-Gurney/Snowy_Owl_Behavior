@@ -30,5 +30,7 @@ Snowy owls
 
 ### [Aircraft_Interactions.R](./Aircraft_Interactions.R): Code to summarize strike counts and damage by airport and migration period.
 
+### [Bird_Bands.R](./Bird_Bands.R): Code to summarize WCAA-USDA snowy owl banding records; and estimate recapture rates of banded birds.
+
 ## Supplemental Information
 * 
