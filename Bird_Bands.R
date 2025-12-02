@@ -77,13 +77,17 @@ write.csv(
 # 📊 3. Overall Recapture Rate (Across All Years)
 # =============================================================================
 
-# Sum across all migration periods
-overall_total_captures <- sum(recap_summary$total_captures)  # Count of all encounters
-overall_total_unique    <- sum(recap_summary$unique_bands)   # Total unique individuals
-overall_total_recaps    <- overall_total_captures - overall_total_unique  # Total recaptures
+# Count total encounter records across all years
+overall_total_captures <- nrow(bands)
 
-# Compute overall proportion of recaptures
-overall_recapture_rate  <- overall_total_recaps / overall_total_captures
+# Count total unique individuals (each band_num only counted once)
+overall_total_unique <- n_distinct(bands$band_num)
+
+# Total recapture events = all encounters minus first encounter for each individual
+overall_total_recaps <- overall_total_captures - overall_total_unique
+
+# Overall recapture rate (proportion of all records that are recaptures)
+overall_recapture_rate <- overall_total_recaps / overall_total_captures
 
 # Create one-row summary table
 overall_results <- data.frame(
@@ -133,12 +137,67 @@ write.csv(
 
 
 # =============================================================================
-# 🔁 5. Recaptured in Different Periods
+# 🔁 5. Cross-Period Recapture Summary
 # =============================================================================
 
-# When was a bird banded and recaptured in a different migration period?
-bands %>%
-  distinct(band_num, migration_label) %>%
+# Identify birds captured in more than one migration period
+cross_period_recaptures <- bands %>%
+  distinct(band_num, migration_label) %>%   # unique bird × period combinations
   group_by(band_num) %>%
-  filter(n() > 1) %>%               # more than one period
+  summarise(
+    n_periods = n()                         # number of periods an individual appears in
+  ) %>%
+  filter(n_periods > 1)                     # keep individuals with ≥2 periods
+
+# Total number of birds recaptured across migration periods
+total_cross_period_recaptures <- nrow(cross_period_recaptures)
+
+
+# =============================================================================
+# 🔁 6. All Records for Birds Captured More Than Once
+# =============================================================================
+
+# Identify all band_num values that appear more than once
+multi_capture_birds <- bands %>%
+  count(band_num) %>%
+  filter(n > 1) %>%
+  pull(band_num)
+
+# Extract ALL occurrences (original + recaptures) of those band_num values
+all_recapture_records <- bands %>%
+  filter(band_num %in% multi_capture_birds) %>%
+  select(band_num, migration_label) %>%
   arrange(band_num, migration_label)
+
+# View or save
+all_recapture_records
+
+# Save output
+write.csv(all_recapture_records, "SNOW_all_multi_capture_records.csv", row.names = FALSE)
+
+# General recapture rate by period
+recapture_by_period <- bands %>%
+  group_by(migration_label) %>%
+  summarise(
+    total_captures = n(),                      # all rows in that period
+    unique_birds   = n_distinct(band_num),     # distinct individuals
+    recaptures     = total_captures - unique_birds,
+    recapture_rate = recaptures / total_captures,
+    .groups = "drop"
+  ) %>%
+  arrange(migration_label)
+
+# Individual-based recapture rate by period
+unique_recapture_rate <- bands %>%
+  group_by(migration_label) %>%
+  summarise(
+    unique_birds = n_distinct(band_num),     # total individuals in that period
+    recaptured_birds = sum(duplicated(band_num)),  # count each bird only once
+    unique_recapture_rate = recaptured_birds / unique_birds,
+    .groups = "drop"
+  ) %>%
+  arrange(migration_label)
+
+
+
+
