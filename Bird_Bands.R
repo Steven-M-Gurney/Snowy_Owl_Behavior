@@ -179,24 +179,23 @@ write.csv(all_recapture_records, "SNOW_all_multi_capture_records.csv", row.names
 recapture_by_period <- bands %>%
   group_by(migration_label) %>%
   summarise(
-    total_captures = n(),                      # all rows in that period
-    unique_birds   = n_distinct(band_num),     # distinct individuals
+    total_captures = n(),                         # number of capture records
+    unique_birds   = n_distinct(band_num),        # distinct individuals
     recaptures     = total_captures - unique_birds,
-    recapture_rate = recaptures / total_captures,
+    recapture_rate = recaptures / total_captures, # record-based rate
+    
+    # unique (bird-level) recapture rate:
+    unique_recapture_rate = recaptures / unique_birds,
+    
     .groups = "drop"
   ) %>%
   arrange(migration_label)
 
-# Individual-based recapture rate by period
-unique_recapture_rate <- bands %>%
-  group_by(migration_label) %>%
-  summarise(
-    unique_birds = n_distinct(band_num),     # total individuals in that period
-    recaptured_birds = sum(duplicated(band_num)),  # count each bird only once
-    unique_recapture_rate = recaptured_birds / unique_birds,
-    .groups = "drop"
-  ) %>%
-  arrange(migration_label)
+# Save CSV
+write.csv(recapture_by_period, "recapture_rates_by_period.csv", row.names = FALSE)
+
+
+
 
 
 
