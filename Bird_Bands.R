@@ -130,3 +130,15 @@ write.csv(
   "SNOW_recapture_group_comparison.csv",
   row.names = FALSE
 )
+
+
+# =============================================================================
+# 🔁 5. Recaptured in Different Periods
+# =============================================================================
+
+# When was a bird banded and recaptured in a different migration period?
+bands %>%
+  distinct(band_num, migration_label) %>%
+  group_by(band_num) %>%
+  filter(n() > 1) %>%               # more than one period
+  arrange(band_num, migration_label)
