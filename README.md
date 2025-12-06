@@ -32,4 +32,4 @@ At Detroit Metropolitan Wayne County Airport (DTW), we remain committed to uphol
 
 ## Supplemental Information
 
-### [SNOW_Presentation.pdf](./Snow_Presentation.pdf): Relative presentation given at DTW's Wildlife Hazard Management Committee, Novemember 2025.
+### [SNOW_Presentation.pdf](./SNOW_Presentation.pdf): Relative presentation given at DTW's Wildlife Hazard Management Committee, Novemember 2025.
